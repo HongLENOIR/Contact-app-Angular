@@ -32,30 +32,17 @@
            class="list-group-item list-group-item-action">
           {{contact.name}}
         </a>
-        {{mesContacts |json}}
-      </div>
+        <!--{{mesContacts |json}}-->
+
+      </div><!--/.list-group -->
+      <app-new-contact (newContactEvent)="addContact($event)"></app-new-contact>
     </div>  <!--./col-sm-4 -->
+
     <!-- Profil du contact -->
     <div class="col-sm-8">
-      <div class="jumbotron" *ngIf="contactProfil">
-        <h1 class="display-4">{{ contactProfil.name }}</h1>
-        <p class="lead">{{ contactProfil.email }}</p>
-        <p class="lead">{{ contactProfil.tel }}</p>
-        <hr class="my-4">
-        <!-- Exemple du Two Way Data Binding
-         ou Banana in the box.
-         Le Model impacte la vue
-         La Vue impacte le model-->
-        <input type="text"
-               [(ngModel)]="contactProfil.name"
-               class="form-control">
-
-      </div>
-      <div class="jumbotron" *ngIf="!contactProfil">
-        <h1 class="display-4">Mes contacts</h1>
-        <p class="lead">Choisir un Contact via click</p>
-        <hr class="my-4">
-      </div>
+      <!--Ici j'affiche mon component
+       ProfilComponent-->
+      <app-profil [contactProfil]="contactProfil"></app-profil>
     </div>  <!--./col-sm-8-->
 
   </div> <!-- /.row-->
